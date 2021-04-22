@@ -149,6 +149,10 @@ def news_delete(id):
         abort(404)
     return redirect('/')
 
+@app.route('/album', methods=['GET', 'POST'])
+def album():
+    return render_template('album.html', title='Альбом', active2='active')
+
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
     return render_template('settings.html', title='Настройки', active3='active')
