@@ -2,37 +2,41 @@
 
 {% block customcss %}
 .login-form{
-    width: 300px;
-    margin:0 auto;
+width: 300px;
+margin:0 auto;
 }
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Авторизация</h1>
-<div class="login-form">
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(class="form-control", type="email") }}<br>
-            {% for error in form.email.errors %}
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="text-center">Авторизация</h1>
+        <div class="login-form">
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(class="form-control", type="email") }}<br>
+                    {% for error in form.email.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(class="form-control", type="password") }}<br>
-            {% for error in form.password.errors %}
+                {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(class="form-control", type="password") }}<br>
+                    {% for error in form.password.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary mx-auto d-block") }}</p>
-        <div>{{ message }}</div>
-    </form>
-</div>
+                {% endfor %}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p>{{ form.submit(type="submit", class="btn btn-primary mx-auto d-block") }}</p>
+                <div>{{ message }}</div>
+            </form>
+        </div>
+    </div>
+</main>
 {% endblock %}
