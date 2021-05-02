@@ -9,11 +9,15 @@ from forms.user import RegisterForm
 from forms.login import LoginForm
 from forms.news import NewsForm
 
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'RTPv?X%OMS8pcDDql{HB'
 app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=31)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
 
 
 @login_manager.user_loader

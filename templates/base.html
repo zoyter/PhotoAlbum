@@ -7,11 +7,13 @@
     <title>{{title}}</title>
 
     <!-- Favicons -->
-    <link rel="icon" href="/static/favicon.ico">
-    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- css -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/headers.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headers.css') }}">
+
+
 
     <style>
       .bd-placeholder-img {
@@ -33,7 +35,7 @@
 
     </style>
 
-    <link href="/static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sticky-footer-navbar.css') }}" >
 
 </head>
 
@@ -54,7 +56,7 @@
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {{active2}}" href="/album">Мои альбомы</a>
+                        <a class="nav-link {{active2}}" href="/photos">Мои фотографии</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active3}}" href="/settings">Настройки</a>
@@ -93,7 +95,10 @@
 </footer>
 
 
-<script src="static/js/bootstrap.min.js"></script>
+{% block myscripts %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
 
 </body>

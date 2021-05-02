@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block customcss %}
+.login-form{
+width: 300px;
+margin:0 auto;
+}
+{% endblock %}
+
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="text-center">Альбом</h1>
+        В разработке
+             {{ ckeditor.load() }}
+
+<form method="post">
+    {{ ckeditor.create() }}
+    <input type="submit">
+</form>
+    </div>
+</main>
+{% endblock %}
+
+{% block myscripts %}
+
+{% endblock %}

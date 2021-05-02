@@ -15,7 +15,8 @@ class User(SqlAlchemyBase, UserMixin):
     email = sqlalchemy.Column(sqlalchemy.String,index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
-    news = orm.relation("News", back_populates='user')
+    # news = orm.relation("News", back_populates='user')
+    photos = orm.relation("Photos", back_populates='user')
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,default=datetime.datetime.now)
     def __repr__(self):
         r = f"{self.__class__.__name__} {self.name} {self.email}"

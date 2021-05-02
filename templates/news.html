@@ -16,6 +16,8 @@
             {% endfor %}
             </p>
             <p>
+                {{ ckeditor.load() }}
+
                 {{ form.content.label }}<br>
                 {{ form.content(class="form-control") }}<br>
                 {% for error in form.content.errors %}
