@@ -29,6 +29,16 @@
           font-size: 3.5rem;
         }
       }
+    "float": (
+      responsive: true,
+      property: float,
+      values: (
+        start: left,
+        end: right,
+        none: none,
+      )
+    )
+
      {% block customcss %}
      {% endblock %}
 
@@ -59,8 +69,12 @@
                         <a class="nav-link {{active2}}" href="/photos">Мои фотографии</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{active3}}" href="/settings">Настройки</a>
+                        <a class="nav-link {{active3}}" href="/add">Добавить</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active4}}" href="/settings">Настройки</a>
+                    </li>
+
                     {% endif %}
                 </ul>
                 <!-- <form class="d-flex">
@@ -88,8 +102,13 @@
 {% block content %}
 {% endblock %}
 
+
+
 <footer class="footer mt-auto py-3 bg-dark">
     <div class="container">
+        <p class="float-end mb-1">
+        <a href="#">Наверх</a>
+        </p>
         <span class="text-muted">(c) PhotoAlbum 2021</span>
     </div>
 </footer>

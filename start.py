@@ -113,6 +113,18 @@ def logout():
     return redirect("/")
 
 @app.route('/photos', methods=['GET', 'POST'])
+def myphotos(): # Моиф фотографии
+    db_sess = db_session.create_session()
+    if current_user.is_authenticated:
+        photos = db_sess.query(Photos).filter(
+            (Photos.user == current_user) | (Photos.is_private != True))
+    else:
+        photos = db_sess.query(Photos).filter(Photos.is_private != True)
+
+
+    return render_template("myphotos.html", photos=photos, active2='active')
+
+@app.route('/add', methods=['GET', 'POST'])
 @login_required
 def add_photos(): # Добавление новых фотографий
     form = PhotosForm()
@@ -144,9 +156,9 @@ def add_photos(): # Добавление новых фотографий
         db_sess.merge(current_user)
         db_sess.commit()
         return redirect('/')
-    return render_template('photos.html', title='Добавление фотографий',form=form)
+    return render_template('photos_add.html', title='Добавление фотографий',form=form, active3='active')
 
-@app.route('/photos/<int:id>', methods=['GET', 'POST'])
+@app.route('/photos_add/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_photos(id):
     form = PhotosForm()
@@ -174,7 +186,7 @@ def edit_photos(id):
             return redirect('/')
         else:
             abort(404)
-    return render_template('photos.html',
+    return render_template('photos_add.html',
                            title='Редактирование новости',
                            form=form
                            )
@@ -199,6 +211,12 @@ def editor():
     return render_template('editor.html',
                            title='Редактор')
 
+
+@app.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    return render_template('settings.html',
+                           title='Найстройки',active4='active')
 
 
 
