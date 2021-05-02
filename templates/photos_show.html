@@ -6,8 +6,10 @@
             {% for item in photos%}
             {% if id == item.id %}
             <h1 class="text-center">{{item.filename}}</h1>
+            <a href="/">
             <img src="/static/userdata/{{ item.user_id }}-{{ item.user.name }}/{{ item.filename }}"
                  class="img-fluid" alt="Responsive image">
+            </a>
             {% endif %}
             {% endfor %}
         </div>
