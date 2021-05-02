@@ -4,11 +4,11 @@
     <div class="album py-5 bg-light">
         <div class="container">
             {% for item in photos%}
-                {% if id == item.id %}
-                    <h1 class="text-center">{{item.filename}}</h1>
-                    <img src="/static/userdata/{{ item.user_id }}-{{ item.user.name }}/{{ item.filename }}"
-                    class="img-fluid" alt="Responsive image">
-                {% endif %}
+            {% if id == item.id %}
+            <h1 class="text-center">{{item.filename}}</h1>
+            <img src="/static/userdata/{{ item.user_id }}-{{ item.user.name }}/{{ item.filename }}"
+                 class="img-fluid" alt="Responsive image">
+            {% endif %}
             {% endfor %}
         </div>
     </div>

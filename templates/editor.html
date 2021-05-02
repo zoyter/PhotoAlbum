@@ -12,12 +12,12 @@ margin:0 auto;
     <div class="container">
         <h1 class="text-center">Альбом</h1>
         В разработке
-             {{ ckeditor.load() }}
+        {{ ckeditor.load() }}
 
-<form method="post">
-    {{ ckeditor.create() }}
-    <input type="submit">
-</form>
+        <form method="post">
+            {{ ckeditor.create() }}
+            <input type="submit">
+        </form>
     </div>
 </main>
 {% endblock %}
