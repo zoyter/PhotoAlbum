@@ -1,2 +1,6 @@
 flask
 flask-wtf
+flask_login
+flask_ckeditor
+sqlalchemy
+pillow
